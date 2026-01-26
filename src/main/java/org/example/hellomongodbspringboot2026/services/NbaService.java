@@ -28,4 +28,7 @@ public class NbaService {
         return nbaRepository.save(team);
     }
 
+    public Optional<Team> findTeamByName(String name) {
+        return nbaRepository.getTeamByNombre(name);
+    }
 }

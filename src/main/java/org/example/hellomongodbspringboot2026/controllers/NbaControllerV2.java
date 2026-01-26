@@ -23,6 +23,15 @@ class NbaControllerV2 {
         return nbaService.findAll();
     }
 
+    @GetMapping("/teams/{name}")
+    public ResponseEntity<Team> findOne(@PathVariable String name){
+        if(nbaService.findTeamByName(name).isPresent()){
+            return ResponseEntity.ok(nbaService.findTeamByName(name).get());
+        }else{
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/teams")
     public ResponseEntity<Team> save(@RequestBody Team team) {
         if(nbaService.save(team)!=null) {
