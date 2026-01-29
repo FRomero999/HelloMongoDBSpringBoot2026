@@ -24,12 +24,8 @@ class NbaControllerV2 {
     }
 
     @GetMapping("/teams/{name}")
-    public ResponseEntity<Team> findOne(@PathVariable String name){
-        if(nbaService.findTeamByName(name).isPresent()){
-            return ResponseEntity.ok(nbaService.findTeamByName(name).get());
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+    public Team findOne(@PathVariable String name){
+        return nbaService.findTeamByName(name);
     }
 
     @PostMapping("/teams")

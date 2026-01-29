@@ -13,6 +13,5 @@ public interface  NbaRepository extends MongoRepository<Team,String> {
     public Optional<Team> getTeamByNombre(String name);
     public Optional<Team> getTeamByCiudad(String ciudad);
     public List<Team> findTeamsByConferencia(String conferencia);
-    public List<Team> findTeamsByAño_creacionIsBetween(Integer año1, Integer año2);
 
 }
