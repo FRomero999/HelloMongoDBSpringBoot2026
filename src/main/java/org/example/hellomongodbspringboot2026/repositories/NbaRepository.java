@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface  NbaRepository extends MongoRepository<Team,String> {
+    public Team findTeamByNombre(String name);
+
 }

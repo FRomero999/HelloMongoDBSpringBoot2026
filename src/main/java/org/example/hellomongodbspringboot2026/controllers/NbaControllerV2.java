@@ -37,9 +37,4 @@ class NbaControllerV2 {
         }
     }
 
-    @GetMapping("/teams/{teamname}")
-    public Team findByName(@PathVariable String teamname) {
-        return nbaService.findByNombre(teamname);
-    }
-
 }
