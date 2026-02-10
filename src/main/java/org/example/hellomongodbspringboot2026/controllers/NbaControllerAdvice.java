@@ -1,6 +1,6 @@
 package org.example.hellomongodbspringboot2026.controllers;
 
-import org.example.hellomongodbspringboot2026.entities.ErrorResponse;
+import org.example.hellomongodbspringboot2026.dto.ErrorResponseDTO;
 import org.example.hellomongodbspringboot2026.exceptions.TeamNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 class NbaControllerAdvice {
 
     @ExceptionHandler(TeamNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleTeamNotFound(TeamNotFoundException ex) {
-        ErrorResponse err = new ErrorResponse("Team not found","404",ex.getMessage());
+    public ResponseEntity<ErrorResponseDTO> handleTeamNotFound(TeamNotFoundException ex) {
+        ErrorResponseDTO err = new ErrorResponseDTO("Team not found","El equipo solicitado no existe",404);
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .contentType(MediaType.APPLICATION_JSON)
