@@ -2,6 +2,7 @@ package org.example.hellomongodbspringboot2026.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -20,4 +21,6 @@ public class Team {
     private Integer presupuesto;
     private String propietario;
     private List<String> jugadores = new ArrayList<>();
+    @Transient
+    private String history = "";
 }

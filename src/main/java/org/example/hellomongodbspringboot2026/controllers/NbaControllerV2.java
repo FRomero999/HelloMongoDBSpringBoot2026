@@ -28,6 +28,11 @@ class NbaControllerV2 {
         return nbaService.findTeamByName(name);
     }
 
+    @GetMapping("/teams/{name}/history")
+    public String teamHistory(@PathVariable String name){
+        return nbaService.generateHistoryTeam(name);
+    }
+
     @PostMapping("/teams")
     public ResponseEntity<Team> save(@RequestBody Team team) {
         if(nbaService.save(team)!=null) {
